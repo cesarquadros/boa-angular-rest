@@ -12,4 +12,7 @@ export class TelaLoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(){
+     alert('SUBMETIDO')
+  }
 }

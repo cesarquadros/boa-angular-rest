@@ -1,3 +1,4 @@
+import { RouterModule, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  usuarioLogado = false;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+      if(this.usuarioLogado){
+        this.router.navigate(['login']);
+    }
   }
 
+  logado(){
+    this.usuarioLogado = !this.usuarioLogado;
+  }
 }
