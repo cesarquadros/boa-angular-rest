@@ -1,26 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end">
-  <a class="navbar-brand" href="#">B.O.A</a>
+  <a class="navbar-brand" [routerLink]="['./']" href="#">B.O.A</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav" *ngIf="usuarioLogado">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Agendamentos <span class="sr-only">(current)</span></a>
+
+    <ul class="navbar-nav" > 
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['./index']" href="#">Inicio <span class="sr-only">(current)</span></a>
+      </li>       
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['./informacoes']" href="#">Informações <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Informações <span class="sr-only">(current)</span></a>
+      <li class="nav-item" *ngIf="usuarioLogado">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['./novoAgendamento']" href="#">Agendamentos <span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>
 
   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav" *ngIf="!usuarioLogado">
-          <li class="nav-item active">
+          <li class="nav-item">
         <a class="nav-link" (click)="logado()" href="#">Cadastrar <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" [routerLink]="['./login']">Login <span class="sr-only">(current)</span></a>
       </li>
     </ul>
