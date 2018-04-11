@@ -9,11 +9,22 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class HorarioService {
 
+  listaHorario: Array<Horario>
+
   constructor(private http: Http) { }
-
-  carregarSalas(): Observable<Unidade[]>{
-
-    return this.http.get(`http://localhost:8080/boasalasdeatendimento/carregarhorarioteste`)
-    .map(response => response.json())
+  
+  carregarHorarios(): Array<Horario>{
+    return this.listaHorario = [
+    {'id' : 1,'horarioString' : '10:00'},
+    {'id' : 2,'horarioString' : '11:00'},
+    {'id' : 3,'horarioString' : '12:00'},
+    {'id' : 4,'horarioString' : '13:00'},
+    {'id' : 5,'horarioString' : '14:00'},
+    {'id' : 6,'horarioString' : '15:00'},
+    {'id' : 7,'horarioString' : '16:00'},
+    {'id' : 8,'horarioString' : '17:00'},
+    {'id' : 9,'horarioString' : '18:00'},
+    {'id' : 10,'horarioString' : '19:00'},
+    ]
   }
 }

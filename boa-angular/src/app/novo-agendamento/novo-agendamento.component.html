@@ -1,60 +1,12 @@
-<div class="container-fluid">
+<div class="container">
   <br />
-  <div class="row">
+  <div class="row" ng-init="carregarSalas()">
     <div class="col-xs-12 col-sm-12 col-md-4" >
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <div class="card card-nav-tabs">
-            <div class="card-body ">
-              <!-- markup -->
-              <b>Dica: </b>Escolha uma data, em seguida clique na sala
-              <br />
-              <div class="form-group label-floating">
-                <label class="control-label">Escolha uma data</label> 
-                <input id="data" class="datepicker form-control" type="text" readonly="readonly"/> 
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <div class="card card-na v-tabs">
-            <div class="card-body" ng-init="carregarSalas()">
-              <div *ngFor="let unidade of unidades" style="text-align: center;">
-                <h4 >Unidade: {{unidade.nomeUnidade}}</h4>
-
-                <div>
-                  <!-- simple and vertical -->
-                  <ul class="nav nav-pills nav-pills-rose nav-stacked">
-                    <li *ngFor="let sala of unidade.listaSala"><a href="#tab{{sala.numero}}" (click)="carregarSalas()" data-toggle="tab">SALA {{sala.numero}}</a></li>
-                  </ul>
-                </div>										
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <boa-unidade></boa-unidade>
     </div>
-    
-    <div class="col-xs-12 col-sm-12 col-md-8" ng-init="carregarHorarios(numeroSala, idSala)">
-      <div class="card card-nav-tabs">
-        <div class="card-body">
-        <span class="loader" id="loader"></span>
-        <h3 style="text-align: center;">Sala {{numeroSala}} - Grade de horários {{dataSelecionada}}</h3>  
-        <div style="overflow: auto; height: 345px;">
-         
-          <table class="table table-hover">
-            <tbody style="overflow: scroll;">
-              <tr *ngFor="let horario of listaHorario">
-                <td>{{horario.horarioString}}</td>
-                <td>Horário disponível</td>
-                <td><a class="btn btn-success btn-xs" (click)="realizarAgendamento(horario)">Agendar</a></td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-        </div>
-      </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-8">
+      <boa-horario></boa-horario>
     </div>		
   </div>
 </div>

@@ -1,3 +1,30 @@
-<p>
-  unidade works!
-</p>
+<div class="row" ng-init="carregarSalas()">
+  <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="card card-nav-tabs">
+      <div class="card-body ">
+        <!-- markup -->
+        <b>Dica: </b>Escolha uma data, em seguida clique na sala
+        <br />
+        <div class="form-group label-floating">
+          <label class="control-label">Escolha uma data</label> 
+          <input id="data" class="datepicker form-control" type="date" [(ngModel)]="data"/> 
+          {{data}}
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="card card-nav-tabs">
+      <div class="card-body ">
+        <p>{{mensagemUnidade}}</p>
+        <div *ngFor="let unidade of unidades" style="text-align: center;">
+          <strong>Unidade: </strong>{{unidade.nomeUnidade}}
+          <div>
+            <!-- simple and vertical -->
+            <p *ngFor="let sala of unidade.listaSala"><a href="#" >SALA {{sala.numero}}</a></p>
+          </div>										
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

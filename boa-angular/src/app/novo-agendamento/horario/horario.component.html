@@ -1,0 +1,18 @@
+<div class="card card-nav-tabs" ng-init="carregarHorarios(numeroSala, idSala)">
+  <span class="loader" id="loader"></span>
+  <div class="card-body">
+    <h3 style="text-align: center;">Sala {{numeroSala}} - Grade de horários {{dataSelecionada}}</h3>
+    <p>{{mensagemHorarios}}</p>
+    <div style="overflow: auto; height: 345px;">
+      <table class="table">
+        <tbody *ngFor="let horario of listaHorario" style="overflow: scroll;">
+          <tr>
+            <td class="text-center">{{horario.horarioString}}</td>
+            <td>Horário disponível</td>
+            <td><a class="btn btn-success btn-xs">Agendar</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>  

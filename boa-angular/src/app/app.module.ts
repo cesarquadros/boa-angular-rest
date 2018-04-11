@@ -1,7 +1,9 @@
+import { UnidadeService } from './novo-agendamento/unidade/unidade.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms'
 
 import { ROUTES } from './app.routes'
 
@@ -14,6 +16,7 @@ import { InformacoesComponent } from './informacoes/informacoes.component';
 import { UnidadeComponent } from './novo-agendamento/unidade/unidade.component';
 
 import { HorarioService } from './novo-agendamento/horario/horario.service';
+import { HorarioComponent } from './novo-agendamento/horario/horario.component';
 
 
 @NgModule({
@@ -24,14 +27,16 @@ import { HorarioService } from './novo-agendamento/horario/horario.service';
     TelaLoginComponent,
     NovoAgendamentoComponent,
     InformacoesComponent,
-    UnidadeComponent
+    UnidadeComponent,
+    HorarioComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
-  providers: [HorarioService],
+  providers: [HorarioService, UnidadeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
