@@ -13,7 +13,7 @@ export class HorarioService {
 
   carregarSalas(): Observable<Unidade[]>{
 
-    return this.http.get(`http://localhost:8080/boasalasdeatendimento/salas`)
+    return this.http.get(`http://localhost:8080/boasalasdeatendimento/carregarhorarioteste`)
     .map(response => response.json())
   }
 }
