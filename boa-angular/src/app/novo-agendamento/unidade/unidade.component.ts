@@ -12,28 +12,22 @@ export class UnidadeComponent implements OnInit {
   mensagemUnidade = 'Carregando...'
   unidades: Unidade[]
 
-   postData :  string;
-
-  
   constructor(private unidadeService: UnidadeService) { }
 
   ngOnInit() {
     console.log('Carregando Salas')
-    this.unidadeService.carregarSalas()/*.subscribe(unidades => this.unidades = unidades)*/
+    this.unidadeService.carregarSalas()
+    .subscribe(unidades => this.unidades = unidades, 
+    error => alert(error),
+    () => this.mensagemUnidade = '')
+    
+    /*
     .toPromise()
     .then(res => {
       this.unidades = res
       this.mensagemUnidade = ''
     })
     .catch(erro => {
-      this.mensagemUnidade = 'Ocorreu um erro'})   
-
-      this.unidadeService.post()
-       .subscribe(
-          data => this.postData = JSON.stringify(data),
-          error => alert(error),
-          () => console.log("acesso a webapi post ok...")
-       );
-
+      this.mensagemUnidade = 'Ocorreu um erro'})  */ 
   }
 }

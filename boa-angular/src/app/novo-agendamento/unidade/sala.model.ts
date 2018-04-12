@@ -1,7 +1,7 @@
 import { Unidade } from './../unidade/unidade.model';
 
 export interface Sala {
-    id: number
+    id?: number
     idUnidade?: number
     unidade?: Unidade
     numero: number

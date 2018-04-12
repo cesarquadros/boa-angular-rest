@@ -1,4 +1,4 @@
-<div class="card card-nav-tabs" ng-init="carregarHorarios(numeroSala, idSala)">
+<div class="card card-nav-tabs">
   <span class="loader" id="loader"></span>
   <div class="card-body">
     <h3 style="text-align: center;">Sala {{numeroSala}} - Grade de horários {{dataSelecionada}}</h3>
@@ -9,7 +9,7 @@
           <tr>
             <td class="text-center">{{horario.horarioString}}</td>
             <td>Horário disponível</td>
-            <td><a class="btn btn-success btn-xs">Agendar</a></td>
+            <td><a class="btn btn-success btn-xs" (click)='agendar(sala)'>Agendar</a></td>
           </tr>
         </tbody>
       </table>

@@ -9,11 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HorarioComponent implements OnInit {
 
-  listaHorario: Array<Horario>
+  mensagemHorarios = 'Carregando...'
+  listaHorario: Horario[]
 
   constructor(private horarioService: HorarioService) { }
 
   ngOnInit() {
-     this.listaHorario = this.horarioService.carregarHorarios();
+    this.getHorarios();  
+  }
+
+  getHorarios(){
+    this.horarioService.carregarHorarios()
+    .subscribe(
+      listaHorario => this.listaHorario = listaHorario,
+      error => alert(error),
+      () => this.tamanhoLista(this.listaHorario),
+    );
+  }
+  tamanhoLista(lista: Horario[]){
+    if(lista.length > 0){
+      this.mensagemHorarios = ''
+    } else {
+      this.mensagemHorarios = 'Não existem horarios disponiveis'
+    }
+  }
+
+    agendar(sala){
+    alert('Teste Agendamento '+sala)
   }
 }

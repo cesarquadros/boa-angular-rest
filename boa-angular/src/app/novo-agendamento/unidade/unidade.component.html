@@ -20,8 +20,10 @@
         <div *ngFor="let unidade of unidades" style="text-align: center;">
           <strong>Unidade: </strong>{{unidade.nomeUnidade}}
           <div>
-            <!-- simple and vertical -->
-            <p *ngFor="let sala of unidade.listaSala"><a href="#" >SALA {{sala.numero}}</a></p>
+            <select class="form-control" [(ngModel)]='sala'>
+              <option value = '{{sala.id}}' *ngFor="let sala of unidade.listaSala">SALA {{sala.numero}}</option>
+            </select>
+            {{sala}}
           </div>										
         </div>
       </div>
